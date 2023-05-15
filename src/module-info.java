@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author lasse
+ *
+ */
+module SemesterProjekt {
+}
