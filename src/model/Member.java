@@ -1,4 +1,4 @@
-package SMProjekt;
+package model;
 
 public class Member
 {
@@ -20,7 +20,7 @@ public double getDiscount()
 {
 	return discount;
 }
-public void setDiscount()
+public void setDiscount(double discount)
 {
 	this.discount = discount;
 }
@@ -28,7 +28,7 @@ public String getName()
 {
 	return name;
 }
-public void setName()
+public void setName(String name)
 {
 	this.name = name;
 }
@@ -36,7 +36,7 @@ public String getEmail()
 {
 	return email;
 }
-public void setEmail()
+public void setEmail(String email)
 {
 	this.email = email;
 }
@@ -44,7 +44,7 @@ public String getPhone()
 {
 	return phone;
 }
-public void setPhone()
+public void setPhone(String phone)
 {
 	this.phone = phone;
 }
@@ -52,7 +52,7 @@ public String getAddress()
 {
 	return address;
 }
-public void setAddress()
+public void setAddress(String address)
 {
 	this.address = address;
 }
