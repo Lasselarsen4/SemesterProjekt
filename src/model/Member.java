@@ -19,7 +19,7 @@ private String address;
 public Member(double discount, String name, String email, String phone, String address)
 {
 	this.credit = 25000; //Tilfældig bestemt værdi 
-	this.discount = discount;
+	this.discount = discount; //Udregnet som en double i procent - eks. 0.1 = 10%
 	this.name = name;
 	this.email = email;
 	this.phone = phone;
@@ -31,10 +31,10 @@ public Member(double discount, String name, String email, String phone, String a
  */
 public double getCredit()
 {
-	return credit
+	return credit;
 }
 /**
- * @param set credit
+ * @param set credit 
  */
 public void setCredit(double credit)
 {
