@@ -2,6 +2,7 @@ package model;
 
 public class Member
 {
+private double credit;
 private double discount;
 private String name;
 private String email;
@@ -17,12 +18,27 @@ private String address;
  */
 public Member(double discount, String name, String email, String phone, String address)
 {
+	this.credit = 25000; //Tilfældig bestemt værdi 
 	this.discount = discount;
 	this.name = name;
 	this.email = email;
 	this.phone = phone;
 	this.address = address;
 
+}
+/**
+ * @return credit
+ */
+public double getCredit()
+{
+	return credit
+}
+/**
+ * @param set credit
+ */
+public void setCredit(double credit)
+{
+	this.credit = credit;
 }
 /**
  * @return discount
