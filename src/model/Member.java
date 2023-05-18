@@ -18,7 +18,7 @@ private String address;
  */
 public Member(double discount, String name, String email, String phone, String address)
 {
-	this.credit = 25000; //Tilfældig bestemt værdi 
+	this.credit = 0; //Sat som 0, da kredit er forskelligt fra member til member 
 	this.discount = discount; //Udregnet som en double i procent - eks. 0.1 = 10%
 	this.name = name;
 	this.email = email;
