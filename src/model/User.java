@@ -1,6 +1,10 @@
 package model;
 
 // Skal muligvis være en abstract class
+/**
+ * @author lasse
+ *
+ */
 public class User
 {
 	private String name;

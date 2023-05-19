@@ -1,5 +1,9 @@
 package model;
 
+/**
+ * @author lasse
+ *
+ */
 public class Member
 {
 private double credit;

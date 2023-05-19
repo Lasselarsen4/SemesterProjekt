@@ -1,5 +1,9 @@
 package model;
 
+/**
+ * @author lasse
+ *
+ */
 public class Admin extends User
 {
 	/**
