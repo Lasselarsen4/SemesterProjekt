@@ -6,6 +6,7 @@ public class OrderLine
 	private int quantity;
 	
 	/**
+	 * Constructor
 	 * @param p
 	 * @param quantity
 	 */

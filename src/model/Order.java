@@ -1,125 +1,136 @@
 package model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- * @author lasse
- *
- */
-public class Order 
-{
-	private Member member;
-	private int orderNum;
-	private static int orderNumCount = 1;
-	private LocalDate orderDate;
-	private LocalDate deliveryDate;
-	private double totalCost;
-	private LocalDate payDate;
-	private boolean finished;
-	// Mangler OrderLine (List eller ArrayList)
-	
-	/**
-	 *  Constructor
-	 */
-	public Order()
-	{
-		this.orderNum = orderNumCount;
-		orderNumCount++;
-		orderDate = LocalDate.now();
-		setPayDate(LocalDate.now());
-		finished = false;
-	}
-	/**
-	 * @return Member her kaldt member.
-	 */
-	public Member getMember()
-	{
-		return member;
-	}
-	/**
-	 * @param set Member
-	 */
-	public void setMember(Member member)
-	{
-		this.member = member;
-	}
-	
-	/**
-	 * @return orderNumber
-	 */
-	public int getOrderNum()
-	{
-		return orderNum;
-	}
-	/**
-	 * @param set OrderNumber
-	 */
-	public void setOrderNum(int orderNum)
-	{
-		this.orderNum = orderNum;
-	}
-	/**
-	 * @return order date
-	 */
-	public LocalDate getOrderDate()
-	{
-		return orderDate;
-	}
-	/**
-	 * @param set orderDate
-	 */
-	public void setOrderDate(LocalDate orderDate)
-	{
-		this.orderDate = orderDate;
-	}
-	/**
-	 * @return Deliverydate
-	 */
-	public LocalDate getDeliveryDate()
-	{
-		return deliveryDate;
-	}
-	/**
-	 * @param set deliveryDate
-	 */
-	public void setDeliveryDate(LocalDate deliveryDate)
-	{
-		this.deliveryDate = deliveryDate;
-	}
-	/**
-	 * @return total cost
-	 */
-	public double getTotalCost()
-	{
-		return totalCost;
-	}
-	/**
-	 * @return payDate
-	 */
-	public LocalDate getPayDate()
-	{
-		return payDate;
-	}
-	/**
-	 * @param set payDate
-	 */
-	public void setPayDate(LocalDate payDate)
-	{
-		this.payDate = payDate;
-	}
-	/**
-	 * @return if the order is finished or not
-	 */
-	public boolean isFinished()
-	{
-		return finished;
-	}
-	/**
-	 * Mark the order as finished
-	 */
-	public void markAsFinished()
-	{
-		this.finished = true;
-	}
+public class Order {
+    private Member customer;
+    private List<OrderLine> items;
+    private double totalCost;
+    private LocalDate orderDate;
+    private LocalDate deliveryDate;
+    private LocalDate paymentDate;
+    private static int orderNumCount = 1;
+    private int orderNum;
+    @SuppressWarnings("unused")
+	private boolean isFinished;
 
+    /**
+     * Constructor
+     */
+    public Order() {
+        items = new ArrayList<>();
+        orderDate = LocalDate.now();
+        paymentDate = LocalDate.now();
+        orderNum = orderNumCount;
+        orderNumCount++;
+        }
+
+    /**
+     * @return
+     */
+    public int getOrderNumber() {
+        return orderNum;
+    }
+
+    /**
+     * @param set orderNumber
+     */
+    public void setOrderNumber(int orderNum) {
+        this.orderNum = orderNum;
+    }
+
+    /**
+     * @return Customer
+     */
+    public Member getCustomer() {
+        return customer;
+    }
+
+    /**
+     * @param set customer
+     */
+    public void setCustomer(Member customer) {
+        this.customer = customer;
+    }
+
+
+    /**
+     * @return totalCost
+     */
+    public double getTotalCost() {
+        double totalCost = this.totalCost;
+        if (customer != null) {
+            totalCost *= (1 - customer.getDiscount());
+        }
+        return totalCost;
+    }
+
+    /**
+     * @param orderLine
+     */
+    public void addOrderLine(OrderLine orderLine) {
+        if (orderLine.getProduct() != null) {
+            items.add(orderLine);
+            totalCost += orderLine.getPrice();
+        }
+    }
+
+    /**
+     * @param isFinished
+     */
+    public void setFinished(boolean isFinished)
+    {
+    	this.isFinished = isFinished;
+    }
+
+    /**
+     * @return ArrayList items
+     */
+    public List<OrderLine> getOrderLines() {
+        return new ArrayList<>(items);
+    }
+
+    /**
+     * @return Orderdate
+     */
+    public LocalDate getOrderDate() {
+        return orderDate;
+    }
+
+    /**
+     * @param set orderDate
+     */
+    public void setOrderDate(LocalDate orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    /**
+     * @return deliveryDate
+     */
+    public LocalDate getDeliveryDate() {
+        return deliveryDate;
+    }
+
+    /**
+     * @param set deliveryDate
+     */
+    public void setDeliveryDate(LocalDate deliveryDate) {
+        this.deliveryDate = deliveryDate;
+    }
+
+    /**
+     * @return paymentDate
+     */
+    public LocalDate getPaymentDate() {
+        return paymentDate;
+    }
+
+    /**
+     * @param set paymentDate
+     */
+    public void setPaymentDate(LocalDate paymentDate) {
+        this.paymentDate = paymentDate;
+    }
 }
