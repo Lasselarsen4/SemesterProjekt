@@ -5,7 +5,7 @@ package model;
  * @author lasse
  *
  */
-public class User
+public abstract class User
 {
 	private String name;
 	private String email;

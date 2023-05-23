@@ -58,19 +58,6 @@ public class ProductContainer
 		return result;
 	}
 
-	public Product findProductByName(String name)
-	{
-		Product result = null;
-		try {
-			int index = Collections.binarySearch(products, new Product(name, null), productComparator);
-			result = products.get(index);
-		} catch (IndexOutOfBoundsException e)
-		{
-			return result;
-		}
-		return result;
-	}
-
 	public List<Product> getAllProducts()
 	{
 		ArrayList<Product> temp = new ArrayList<>();
