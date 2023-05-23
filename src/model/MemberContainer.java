@@ -49,9 +49,9 @@ public class MemberContainer
 	}
 	
 	/**
-	 * Finder et medlem i containeren ud fra e-mailadressen.
-	 * @param email e-mailadressen, der skal søges efter
-	 * @return det medlem, der matcher e-mailadressen, eller null hvis intet match findes
+	 * Finder et medlem i containeren ud fra emailadressen.
+	 * @param email emailadressen, der skal søges efter
+	 * @return det medlem, der matcher emailadressen, eller null hvis intet match findes
 	 */
 	public Member findMemberByEmail(String email)
 	{
