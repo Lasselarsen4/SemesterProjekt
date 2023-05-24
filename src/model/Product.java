@@ -2,8 +2,8 @@ package model;
 
 public abstract class Product {
 	private String name;
-	private int itemNumber;
-	private static int itemNumberCount = 0;
+	private int barCode;
+	private static int barCodeCount = 0;
 	private String category;
 	private double price;
 
@@ -16,8 +16,8 @@ public abstract class Product {
 	{
 		this.name = name;
 		this.category = category;
-		itemNumberCount++;
-		itemNumber = itemNumberCount;
+		barCodeCount++;
+		barCode = barCodeCount;
 	}
 	/**
 	 * @return name
@@ -50,16 +50,16 @@ public abstract class Product {
 	/**
 	 * @return itemNumberCount
 	 */
-	public static int getItemNumberCount()
+	public static int getBarCodeCount()
 	{
-		return itemNumberCount;
+		return barCodeCount;
 	}
 	/**
 	 * @return itemNumber
 	 */
-	public int getItemNumber()
+	public int getBarCode()
 	{
-		return itemNumber;
+		return barCode;
 	}
 	/**
 	 * @return price

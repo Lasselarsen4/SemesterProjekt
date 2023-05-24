@@ -43,13 +43,13 @@ public class ProductContainer
 
 	}
 
-	public Product findProductByItemNumber(int itemNumber)
+	public Product findProductByBarcode(int barCode)
 	{
 		Product result = null;
 		boolean found = false;
 		for (int i = 0; i < products.size() && !found; i++)
 		{
-			if (itemNumber == (products.get(i).getItemNumber()))
+			if (barCode == (products.get(i).getBarCode()))
 			{
 				result = products.get(i);
 			}
