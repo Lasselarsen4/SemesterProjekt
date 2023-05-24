@@ -133,4 +133,9 @@ public class Order {
     public void setPaymentDate(LocalDate paymentDate) {
         this.paymentDate = paymentDate;
     }
+
+	public void setM(Member m) {
+		// TODO Auto-generated method stub
+		
+	}
 }
