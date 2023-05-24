@@ -6,7 +6,6 @@ import java.util.ArrayList;
 public class ComplexProduct extends Product
 {
 	private List<ComplexProductLine> complexProductLines;
-	private double totalCost;
 	
 	/**
 	 * Constructor
@@ -38,11 +37,11 @@ public class ComplexProduct extends Product
 	/**
 	 * @return prisen for hele linjen
 	 */
-	public double getCost()
+	public double getPrice()
 	{
-		double result = totalCost;
+		double result = 0;
 		for (ComplexProductLine list : complexProductLines) {
-			result += list.getCost();
+			result += list.getTotalCost();
 		}
 		return result;
 	}

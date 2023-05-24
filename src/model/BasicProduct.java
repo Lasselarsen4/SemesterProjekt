@@ -2,8 +2,8 @@ package model;
 
 public class BasicProduct extends Product
 {
-	private double cost;
 	private SalesLine s;
+	private double price;
 	
 	/**
 	 * Constructor
@@ -22,24 +22,11 @@ public class BasicProduct extends Product
 	 * @param location
 	 * Tilføjer alt information til det specifikke produkt
 	 */
-	public void addInfo(double cost, int currentStock, int minStock, int maxStock, String location) {
-		this.cost = cost;
+	public void addInfo(double price, int currentStock, int minStock, int maxStock, String location) {
+		this.price = price;
 		s = new SalesLine(currentStock, minStock, maxStock, location);
 	}
-	/**
-	 * @return price
-	 */
-	public double getCost()
-	{
-		return cost;
-	}
-	/**
-	 * @param set cost
-	 */
-	public void setCost(double cost)
-	{
-		this.cost = cost;
-	}
+
 	/**
 	 * @return location
 	 */
@@ -57,6 +44,14 @@ public class BasicProduct extends Product
 	public SalesLine getSalesLine()
 	{
 		return s;
+	}
+	public double getPrice()
+	{
+		return price;
+	}
+	public void setPrice(double price)
+	{
+		this.price = price;
 	}
 
 }

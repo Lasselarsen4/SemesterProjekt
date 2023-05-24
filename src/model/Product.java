@@ -5,7 +5,6 @@ public abstract class Product {
 	private int barCode;
 	private static int barCodeCount = 0;
 	private String category;
-	private double price;
 
 	/**
 	 * Constructor
@@ -64,9 +63,6 @@ public abstract class Product {
 	/**
 	 * @return price
 	 */
-	public double getPrice()
-	{
-		return price;
-		
-	}
+	public abstract double getPrice();
+
 }

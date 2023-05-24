@@ -30,7 +30,7 @@ public class OrderUI
 				newOrder();
 				break;
 			case "2":
-				System.out.println("Fejl!");
+				System.out.println("Fejl! - Ikke implementeret");
 				break;
 			case "3":
 				moveOn = false;
@@ -98,6 +98,7 @@ public class OrderUI
 	 */
 	public void newOrder()
 	{
+		oc.createOrder();
 		orderMenu();
 	}
 	public void addMember()
@@ -131,7 +132,7 @@ public class OrderUI
 	            if (oL != null) {
 	                System.out.println("Produktet er tilføjet!");
 	            } else {
-	                System.out.println("Produkt ikke fundet! ");
+	                System.out.println("Produkt ikke fundet!");
 	            }
 	            break;
 	        } catch (NumberFormatException e) {
@@ -142,7 +143,7 @@ public class OrderUI
 	public void printLines()
 	{
 		for (OrderLine ol : oc.getOrderLines()) {
-			System.out.println("Navn på produkt: " + ol.getProduct().getName() + "Mængde: " + ol.getQuantity() + "Pris: " + ol.getPrice());		
+			System.out.println("Navn på produkt: " + ol.getProduct().getName() + " Mængde: " + ol.getQuantity() + " Pris: " + ol.getPrice());		
 		}
 		System.out.println("Total pris: " + oc.getTotalCost());
 	}
