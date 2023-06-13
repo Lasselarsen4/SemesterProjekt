@@ -46,7 +46,7 @@ public class OrderController
 	{
 		Member m = mCont.findMemberByEmail(email);
 		if (m != null) {
-			aOrder.setM(m);
+			aOrder.setCustomer(m);
 		}
 		return m;
 	}

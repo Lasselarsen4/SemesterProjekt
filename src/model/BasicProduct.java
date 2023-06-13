@@ -53,5 +53,9 @@ public class BasicProduct extends Product
 	{
 		this.price = price;
 	}
+	public void setSalesLine(SalesLine salesLine) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

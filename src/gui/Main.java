@@ -1,5 +1,44 @@
 package gui;
 
+import model.BasicProduct;
+import model.ComplexProduct;
+import model.Member;
+import model.MemberContainer;
+import model.ProductContainer;
+
 public class Main {
 
+	public static void main(String[] args) {
+		MainMenuView mmv = new MainMenuView();
+		mmv.setVisible(true);
+		generateData();
+	}
+	
+	public static void generateData()
+	{
+		int currentStock = 25;
+		int minStock = 2;
+		int maxStock = 40;
+		
+		
+		MemberContainer mc = MemberContainer.getInstance();
+		ProductContainer pc = ProductContainer.getInstance();
+		mc.addMember(new Member(0.0, "Lasse", "Lasse@lasse.dk", "12345678", "Vejnavn 1"));
+		BasicProduct hammer = new BasicProduct("Stor hammer", "Hamre");
+		hammer.addInfo(149.99, currentStock, minStock, maxStock, "Et sted");
+		pc.addProduct(hammer);
+		
+		BasicProduct boremaskine = new BasicProduct("Boremaskine", "Værktøj");
+		boremaskine.addInfo(1299.99, currentStock, minStock, maxStock, "Et sted");
+		pc.addProduct(boremaskine);
+		
+		BasicProduct batteri = new BasicProduct("18V batteri til boremaskine", "Batterier");
+		batteri.addInfo(299.99, currentStock, minStock, maxStock, "Et sted");
+		pc.addProduct(batteri);
+		
+		ComplexProduct bMaskinePakke = new ComplexProduct("Boremaskine m. batteri", "En boremaskine, batteri inkl.");
+		bMaskinePakke.addProduct(boremaskine, 1);
+		bMaskinePakke.addProduct(batteri, 1);
+		pc.addProduct(bMaskinePakke);
+	}
 }
