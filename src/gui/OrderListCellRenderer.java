@@ -13,7 +13,7 @@ public class OrderListCellRenderer implements ListCellRenderer<Order> {
 	@Override
 	public Component getListCellRendererComponent(JList<? extends Order> list, Order value, int index, boolean isSelected,
 			boolean cellHasFocus) {
-		String res = String.format("Order #%d Member: %s Price: %s Date: %s", value.getOrderNumber(), value.getCustomer().getName(), value.getTotalCost(), value.getOrderDate());
+		String res = String.format("Ordre #%d Kunde: %s Pris: %s Dato: %s", value.getOrderNumber(), value.getCustomer().getName(), value.getTotalCost(), value.getOrderDate());
 		return new DefaultListCellRenderer().getListCellRendererComponent(list, res, index, isSelected, cellHasFocus);
 	}
 
