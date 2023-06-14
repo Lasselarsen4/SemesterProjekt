@@ -13,7 +13,7 @@ public class OrderLineListCellRenderer implements ListCellRenderer<OrderLine> {
 	@Override
 	public Component getListCellRendererComponent(JList<? extends OrderLine> list, OrderLine value, int index,
 			boolean isSelected, boolean cellHasFocus) {
-		String res = value.getProduct().getName() + " Quantity: " + value.getQuantity() + " Value: " + value.getPrice();
+		String res = value.getProduct().getName() + " Mængde: " + value.getQuantity() + " Værdi: " + value.getPrice();
 		return new DefaultListCellRenderer().getListCellRendererComponent(list, res, index, isSelected, cellHasFocus);
 	}
 

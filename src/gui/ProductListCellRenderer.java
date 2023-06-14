@@ -14,9 +14,9 @@ public class ProductListCellRenderer implements ListCellRenderer<Product> {
 	@Override
 	public Component getListCellRendererComponent(JList<? extends Product> list, Product value, int index,
 			boolean isSelected, boolean cellHasFocus) {
-		String res = value.getName() + " (Barcode: " + value.getBarCode() + ") ";
+		String res = value.getName() + " (Stregkode: " + value.getBarCode() + ") ";
 		if(value instanceof BasicProduct) {
-			res += "(Loc: " + ((BasicProduct)value).getLocation() + ") ";
+			res += "(Lokation: " + ((BasicProduct)value).getLocation() + ") ";
 		}
 		return new DefaultListCellRenderer().getListCellRendererComponent(list, res, index, isSelected, cellHasFocus);
 	}
