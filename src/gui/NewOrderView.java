@@ -46,7 +46,7 @@ public class NewOrderView extends JDialog {
 	 * @param o
 	 */
 	public NewOrderView(Order o, OrderController oc) {
-		setTitle("New Order");
+		setTitle("Ny ordre");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -140,7 +140,7 @@ public class NewOrderView extends JDialog {
 		AddMemberView aMv = new AddMemberView(o, oc);
 		aMv.setVisible(true);
 		member = aMv.getSelectedMember();
-		lblMember.setText("Member: " + member.getName());
+		lblMember.setText("Kunde: " + member.getName());
 	}
 
 	private void cancelPressed() {
@@ -151,19 +151,20 @@ public class NewOrderView extends JDialog {
 	    this.o = o;
 	    this.oc = oc;
 	    dLM = new DefaultListModel<>();
-	    orderLines = new ArrayList<>(); // Initialize the orderLines list
+	    orderLines = new ArrayList<>();
 	    listProducts.setCellRenderer(new OrderLineListCellRenderer());
 	    updateList();
 	}
 
 	private void addProductClicked() {
 		AddProductView aPv = new AddProductView(null, oc, o);
-		aPv.toNotifyNom(this);
+		aPv.setNewOrderView(this);
 		aPv.setVisible(true);
 
 	}
 
 	private void updateList() {
+		dLM.clear();
 	    for (OrderLine orderLine : orderLines) {
 	        dLM.addElement(orderLine);
 	    }
@@ -171,6 +172,11 @@ public class NewOrderView extends JDialog {
 	}
 
 	public void notifyMe() {
+		updateList();
+	}
+	
+	public void addOrderLine(OrderLine orderLine) {
+		orderLines.add(orderLine);
 		updateList();
 	}
 }

@@ -23,6 +23,7 @@ import controller.OrderController;
 import model.BasicProduct;
 import model.ComplexProduct;
 import model.Order;
+import model.OrderLine;
 import model.Product;
 import model.ProductContainer;
 
@@ -41,6 +42,7 @@ public class AddProductView extends JDialog {
 	private Order o;
 	private Product p;
 	private NewOrderView nov;
+	private NewOrderView newOrderView;
 
 	/**
 	 * Create the dialog.
@@ -132,7 +134,7 @@ public class AddProductView extends JDialog {
 			int quantity = Integer.parseInt(txtQuantity.getText());
 			if (quantity != 0 && list.getSelectedValue() != null) {
 				oc.addProduct(list.getSelectedValue().getBarCode(), quantity);
-				nov.notifyMe();
+				newOrderView.addOrderLine(createOrderLine());
 				cancelClicked();
 			} else {
 				JOptionPane.showMessageDialog(this, "Produkt er ikke valgt, eller mængde er 0");
@@ -150,5 +152,16 @@ public class AddProductView extends JDialog {
 	public void toNotifyNom(NewOrderView nov) {
 		this.nov = nov;
 	}
+	public void setNewOrderView(NewOrderView newOrderView) {
+		this.newOrderView = newOrderView;
+	}
+	private OrderLine createOrderLine() {
+	    Product selectedProduct = list.getSelectedValue();
+	    int quantity = Integer.parseInt(txtQuantity.getText());
+	    OrderLine orderLine = new OrderLine(selectedProduct, quantity);
+	    return orderLine;
+	}
+
+
 }
 
