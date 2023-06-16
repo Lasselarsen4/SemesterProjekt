@@ -2,9 +2,7 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,8 +18,6 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import controller.OrderController;
-import model.BasicProduct;
-import model.ComplexProduct;
 import model.Order;
 import model.OrderLine;
 import model.Product;
@@ -39,9 +35,6 @@ public class AddProductView extends JDialog {
 	private DefaultListModel<Product> dlm;
 	private Product selectedProduct;
 	private OrderController oc;
-	private Order o;
-	private Product p;
-	private NewOrderView nov;
 	private NewOrderView newOrderView;
 
 	/**
@@ -106,9 +99,7 @@ public class AddProductView extends JDialog {
 
 	private void init(Product p, OrderController oc, Order o) {
 	    list.setCellRenderer(new ProductListCellRenderer());
-	    this.p = p;
 	    this.oc = oc;
-	    this.o = o;
 	    updateProducts();
 	}
 
@@ -150,7 +141,6 @@ public class AddProductView extends JDialog {
 	}
 
 	public void toNotifyNom(NewOrderView nov) {
-		this.nov = nov;
 	}
 	public void setNewOrderView(NewOrderView newOrderView) {
 		this.newOrderView = newOrderView;
